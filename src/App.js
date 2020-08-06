@@ -83,9 +83,9 @@ const App = () => {
       )}
 
     {/* ------- SECTION 2 ------- */}  
-        <h3> { snippet ? `🏁 Type this snippet now! 🏁 Go! 🏁 ` : null } </h3> 
+        <h4> { snippet ? `🏁 Type this snippet now! 🏁 Go! 🏁 ` : null } </h4> 
             
-            { snippet }
+           <p id="snippet"> { snippet } </p> 
         
         <h4> { gameState.victory? `Done! 🏆 Time: ${gameState.endTime} seconds ` : null } </h4>
           <hr />
