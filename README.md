@@ -4,7 +4,7 @@
 * My project expands on the tutorial by adding some CSS and creating an additional feature: allowing the user to select different levels of difficulty. Each level increases the sentence length. 
 
 ## Preview 
-![image](https://user-images.githubusercontent.com/28805811/89535385-aa75e080-d7f6-11ea-89b7-1594b8c01cb7.png)
+![image](https://user-images.githubusercontent.com/28805811/89537851-2d4c6a80-d7fa-11ea-9c5a-fe72f7999af6.png)
 
 ## Available Scripts
 
