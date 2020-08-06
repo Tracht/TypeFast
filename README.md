@@ -1,7 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Introduction
+
+* This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It is based on  [David Katz' tutorial on React Hooks](https://medium.com/@dtkatz/react-hooks-tutorial-learn-by-building-b90ec4db2b8e). The tutorial shows you how to create a 'Type Fast' game using React Hooks. I did this project to learn about functional components, as I have been used to class-based components. 
+* My project expands on the tutorial by creating an additional feature: allowing the user to select different levels of difficulty. Each level increases the sentence length. 
 
 ## Preview 
-
 ![image](https://user-images.githubusercontent.com/28805811/89535385-aa75e080-d7f6-11ea-89b7-1594b8c01cb7.png)
 
 ## Available Scripts
