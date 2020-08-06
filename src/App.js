@@ -62,25 +62,30 @@ const App = () => {
     {/* --------------- SECTION 1 ------------- */}
       {gameTitle}
 
-        <h4> Choose a level <br></br> 
-
+        <h4> Choose a level 
+        <p> 
           { LEVELS.map((level, index) => ( 
-            <button onClick={ () => setLevel(level) } className="button" key={index} value={level} > 
-              {index + 1} 
-            </button>    
-            ))
+              <button onClick={ () => setLevel(level) } className="button" key={index} value={level} > 
+                {index + 1} 
+              </button>    
+              ))
           }
-
+        </p>
         </h4> 
+ 
 
-      <h3> { level ? `Click one of the sentences to start!` : null } </h3>
+      <h4> { level ? `Click one of the sentences to start!` : null } 
+        <p> 
+          { SNIPPETS.map( (snippet, index) => {
+            if ( snippet.length === level ) { 
+                return <button onClick={ () => chooseSnippet(snippet)} className="button" key={index} value={snippet}> {snippet.substring(0,15)}... </button> 
+              } 
+            }
+          )} 
+        </p>
+      </h4>
+        
 
-      { SNIPPETS.map( (snippet, index) => {
-        if ( snippet.length === level ) { 
-            return <p> <button onClick={ () => chooseSnippet(snippet)} className="button" key={index} value={snippet}> {snippet.substring(0,20)} </button> </p>  
-          } 
-        }
-      )}
 
     {/* ------- SECTION 2 ------- */}  
         <h4> { snippet ? `🏁 Type this snippet now! 🏁 Go! 🏁 ` : null } </h4> 
