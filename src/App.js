@@ -14,14 +14,10 @@ const App = () => {
     'The lady in red was playing a xylophone.',
     'Burty Buttons bought crumpets on Sunday.',
     "She thought there'd be sufficient time if she hid her watch.",
-    "Shakespeare is a famous 17th-century mechanic who ate much.",
+    "Shakespeare is a famous 17th-century mechanic who ate a lot.",
     "The shark-infested South channel was the only way in or out.",
     "Each person who knows you has a different perception of you.",
     "Grape jelly was leaking from the hole in the roof and the gardener paid no mind.",
-    "He embraced his new life as an eggplant, waiting for the sun of flowers to show.",
-    "He was an introvert who loved blueberries and the trees loved him back as well.",
-    "She was always too busy talking about what she would like to do to do any of it.",
-    'Grape jelly was leaking out the hole in the roof and the gardener paid no mind.',
     "He embraced his new life as an eggplant, waiting for the sun of flowers to show.",
     "She was an introvert who loved blueberries and the trees loved her back as well.",
     "She was always too busy talking about what she would like to do to do any of it.",
@@ -30,8 +26,6 @@ const App = () => {
     "She used her own hair in the stew to give it more flavour. The customers, dogs, and cat didn't mind!",
     "When motorists sped in and out of traffic, all she could think of was those in need of a transplant."
   ]
-
-  var chars;
 
   const [level, setLevel] = useState('');
   const [snippet, setSnippet] = useState('');
@@ -50,19 +44,10 @@ const App = () => {
     }  
   }
 
-  const chooseLevel = () => (chars, index, level) => {
-    setLevel(level)
-    console.log(1);
-    console.log("level =", level) ;
-    console.log("chars = ", chars);
-    console.log("index = ", index);
-    console.log(2);
-  }
-
-  const chooseSnippet = () => {  
-    // setSnippet( snippet );
-    // setGameState({ gameState, startTime: new Date().getTime() });
-    // console.log('setSnippet', snippet);
+  const chooseSnippet = (snippet) => {  
+    setSnippet( snippet );
+    setGameState({ gameState, startTime: new Date().getTime() });
+    console.log('setSnippet', snippet);
   }
 
   let gameTitle = 
@@ -79,8 +64,8 @@ const App = () => {
 
         <h4> Choose a level <br></br> 
 
-          { LEVELS.map((chars, index) => ( 
-            <button onClick={ chooseLevel(chars, index) } class="button" key={index} value={chars} > 
+          { LEVELS.map((level, index) => ( 
+            <button onClick={ () => setLevel(level) } className="button" key={index} value={level} > 
               {index + 1} 
             </button>    
             ))
@@ -88,17 +73,18 @@ const App = () => {
 
         </h4> 
 
-      <h3> { level? `Click one of the sentences to start!` : null } </h3>
+      <h3> { level ? `Click one of the sentences to start!` : null } </h3>
 
-      { SNIPPETS.map( (SNIPPET, index) => {
-        if ( SNIPPET.length === {level} ) { 
-            return <p> <button onClick={chooseSnippet(index)} key={index} value={snippet}> {SNIPPET.substring(0,20)} </button> </p>  
+      { SNIPPETS.map( (snippet, index) => {
+        if ( snippet.length === level ) { 
+            return <p> <button onClick={ () => chooseSnippet(snippet)} className="button" key={index} value={snippet}> {snippet.substring(0,20)} </button> </p>  
           } 
         }
       )}
 
     {/* ------- SECTION 2 ------- */}  
-        <h3> { snippet? `🏁 Type this snippet now! 🏁 Go! 🏁 ` : null } </h3> 
+        <h3> { snippet ? `🏁 Type this snippet now! 🏁 Go! 🏁 ` : null } </h3> 
+            
             { snippet }
         
         <h4> { gameState.victory? `Done! 🏆 Time: ${gameState.endTime} seconds ` : null } </h4>
