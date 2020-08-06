@@ -69,58 +69,48 @@ const App = () => {
     <h2> 🏎️ ⌨️ 🏎️ Type Race 
       <span role="img" aria-label="racecar and keyboard emoji"> 🏎️ ⌨️ 🏎️ </span>
     </h2>
-
-  let levelButtons = LEVELS.map((chars, index) => ( 
-    <button onClick={chooseLevel(chars, index)} class="button" key={index} value={chars} > 
-      {index + 1} 
-    </button>  
-  ));  
-
-  let instructionsMessage = 
-    <h3> { level? `Click one of the sentences to start!` : null } </h3>
-
-
-  let snippetOptions =   
-     SNIPPETS.map( (SNIPPET, index) => {
-      if ( SNIPPET.length === {level} ) { 
-          return <p> <button onClick={chooseSnippet(index)} key={index} value={snippet}> {SNIPPET.substring(0,20)} </button> </p>  
-        }
-      }
-    )
-
-  let victoryMessage = 
-    <h4> { gameState.victory? `Done! 🏆 Time: ${gameState.endTime} seconds ` : null } </h4>
-
-  let startTypingMessage = 
-    <h3> { snippet? `🏁 Type this snippet now! 🏁 Go! 🏁 ` : null } </h3> 
-
-  let typeHereBox =   
-    <p> Type here! <br></br>
-      <input value={userText} onChange={updateUserText} /> 
-    </p>
-  
+     
+    
   return (
-      <div className="App">
+    <div className="App">
 
     {/* --------------- SECTION 1 ------------- */}
       {gameTitle}
-        <h4>Choose a level <br></br>
-          {levelButtons}
-        </h4> 
-      {instructionsMessage}
 
-    {/* ----- Generate buttons showing snippet options to choose from ----- */}
-    {/* -----  Display only snippets that match selected level ----- */}
-      { snippetOptions }     
+        <h4> Choose a level <br></br> 
+
+          { LEVELS.map((chars, index) => ( 
+            <button onClick={ chooseLevel(chars, index) } class="button" key={index} value={chars} > 
+              {index + 1} 
+            </button>    
+            ))
+          }
+
+        </h4> 
+
+      <h3> { level? `Click one of the sentences to start!` : null } </h3>
+
+      { SNIPPETS.map( (SNIPPET, index) => {
+        if ( SNIPPET.length === {level} ) { 
+            return <p> <button onClick={chooseSnippet(index)} key={index} value={snippet}> {SNIPPET.substring(0,20)} </button> </p>  
+          } 
+        }
+      )}
 
     {/* ------- SECTION 2 ------- */}  
-        { startTypingMessage } 
-          { snippet }
-        { victoryMessage }
+        <h3> { snippet? `🏁 Type this snippet now! 🏁 Go! 🏁 ` : null } </h3> 
+            { snippet }
+        
+        <h4> { gameState.victory? `Done! 🏆 Time: ${gameState.endTime} seconds ` : null } </h4>
           <hr />
-        { typeHereBox }
+        
+        <p> Type here! <br></br>
+          <input value={userText} onChange={updateUserText} /> 
+        </p>
+  
 
-      </div>
+   </div>
+   
       ); 
 }; 
 
