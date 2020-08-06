@@ -1,0 +1,39 @@
+.button {
+  background-color:  #c392e4; /* Purple */
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 4px;
+  transition-duration: 0.2s;
+  margin: 2px 1px;
+}
+
+.button:hover {
+  background-color:rgb(223, 230, 164); 
+  color: white;
+}
+
+.button:active {
+  background-color: rgb(223, 230, 164); 
+  color: white;
+}
+
+.button:focus {
+  background-color: rgb(164, 230, 227); 
+  color: white;
+}
+
+body {
+  background-color: lightblue;
+}
+
+h2, h3, h4, p {
+  color: white;
+  text-align: center;
+  font-family: helvetica;
+}
+
